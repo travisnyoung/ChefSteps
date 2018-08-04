@@ -18,7 +18,10 @@ def make_test_data(length):
 	return emails_list
 
 def test_perf_hundred_k():
-	runtime = timeit.timeit("deDupe.dedupe_emails(data)", number=1, setup="data = make_test_data(100000)", globals=globals())
+	runtime = timeit.timeit("deDupe.dedupe_emails(data)", 
+		number=1, 
+		setup="data = make_test_data(100000)",
+		globals=globals())
 	print("deduped 100000 emails in %d seconds" % runtime)
 	assert runtime <= 1
 
